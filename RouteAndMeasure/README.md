@@ -23,14 +23,13 @@ The Route and Measure widget allows you to easily search for routes in your netw
 ## Requirements
 
 * Web AppBuilder for ArcGIS version 2.3
-* [Web Appbuilder for ArcGIS](http://developers.arcgis.com/web-appbuilder/)
 
 ## Instructions
 Deploying Widgets
 
 To use the widget with Web AppBuilder, you should copy the RouteAndMeasure folder to the stemapp/widgets directory. This is located in %webappbuilder_install%/client directory.
 
-For more resources on developing modifying widgets please visit
+For more resources on developing or modifying widgets please visit
 [Web AppBuilder for ArcGIS Documentation](http://doc.arcgis.com/en/web-appbuilder/)
 
 
@@ -41,8 +40,8 @@ For more resources on developing modifying widgets please visit
 
 * [Web AppBuilder API](https://developers.arcgis.com/web-appbuilder/api-reference/css-framework.htm)
 * [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/)
-* Learn more about [Esri Roads and Highways](http://www.esri.com/software/arcgis/extensions/roads-and-highways)
-* Learn more about [ArcGIS Pipeline Referencing] (http://www.esri.com/arcgis/products/extensions/pipeline-referencing)
+* Learn more about [Esri Roads and Highways for Server](https://server.arcgis.com/en/roads-highways/)
+* Learn more about [ArcGIS Pipeline Referencing for Server](https://server.arcgis.com/en/pipeline-referencing/)
 
 ## Issues
 

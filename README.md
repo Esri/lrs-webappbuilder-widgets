@@ -32,8 +32,8 @@ For more resources on developing or modifying widgets please visit
 
 ## Resources
 
-* Learn more about [Esri Roads and Highways](http://www.esri.com/software/arcgis/extensions/roads-and-highways)
-* Learn more about [ArcGIS Pipeline Referencing] (http://www.esri.com/arcgis/products/extensions/pipeline-referencing)
+* Learn more about [Esri Roads and Highways for Server](https://server.arcgis.com/en/roads-highways/)
+* Learn more about [ArcGIS Pipeline Referencing for Server](https://server.arcgis.com/en/pipeline-referencing/)
 
 ## Issues
 
