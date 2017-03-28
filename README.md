@@ -59,7 +59,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-A copy of the license is available in the repository's [LICENSE.txt](https://github.com/Esri/address-management-tools-for-event-editor/blob/master/LICENSE.txt?raw=true) file.
+A copy of the license is available in the repository's [LICENSE.txt](https://github.com/ArcGIS/lrs-webappbuilder-widgets/blob/master/LICENSE.txt?raw=true) file.
 
 [](Esri Tags: Roads Highways Pipeline Linear Referencing)
 [](Esri Language: JavaScript)
