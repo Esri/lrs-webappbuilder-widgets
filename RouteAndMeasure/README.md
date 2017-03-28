@@ -1,5 +1,10 @@
-# lrs-webappbuilder-widgets
-Web AppBuilder widgets for linear referencing.
+# Route and Measure widget
+The Route and Measure widget for Web AppBuilder works with the Esri Roads and Highways and ArcGIS Pipeline Referencing extensions for ArcGIS Enterprise.
+
+The Route and Measure widget allows you to easily search for routes in your network and identify measures on routes. Users can pan or zoom the map to the whole route or to just a section of a route when measures are provided. Users can type in route and measure values or use the map to select a route and measures.
+
+![Image of Route and Measure widget][./screenshots/widgetScreenshot.png]
+
 ## Sections
 
 * [Features](#features)
@@ -11,27 +16,31 @@ Web AppBuilder widgets for linear referencing.
 * [Licensing](#licensing)
 
 ## Features
-The Widget Repository currently includes:
 
-* [Route and Measure](./RouteAndMeasure/README.md)
+* Zoom or pan to a route on the map
+* Identify measures on a route
 
 ## Requirements
-Requires Web AppBuilder for ArcGIS version 2.3
+
+* Web AppBuilder for ArcGIS version 2.3
+* [Web Appbuilder for ArcGIS](http://developers.arcgis.com/web-appbuilder/)
 
 ## Instructions
-Deploying Widgets.
+Deploying Widgets
 
-To use the widgets with Web AppBuilder, you should copy any of the widgets to the stemapp/widgets directory. This is located in %webappbuilder_install%/client directory.
+To use the widget with Web AppBuilder, you should copy the RouteAndMeasure folder to the stemapp/widgets directory. This is located in %webappbuilder_install%/client directory.
 
-For more resources on developing or modifying widgets please visit
+For more resources on developing modifying widgets please visit
 [Web AppBuilder for ArcGIS Documentation](http://doc.arcgis.com/en/web-appbuilder/)
+
 
 ### General Help
 [New to Github? Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
 
-
 ## Resources
 
+* [Web AppBuilder API](https://developers.arcgis.com/web-appbuilder/api-reference/css-framework.htm)
+* [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/)
 * Learn more about [Esri Roads and Highways](http://www.esri.com/software/arcgis/extensions/roads-and-highways)
 * Learn more about [ArcGIS Pipeline Referencing] (http://www.esri.com/arcgis/products/extensions/pipeline-referencing)
 
