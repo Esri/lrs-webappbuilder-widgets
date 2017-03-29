@@ -17,6 +17,7 @@ The Route and Measure widget allows you to easily search for routes in your netw
 
 ## Features
 
+* Automatically detect a linear referencing enabled map service in the webmap
 * Zoom or pan to a route on the map
 * Identify measures on a route
 
@@ -31,6 +32,8 @@ To use the widget with Web AppBuilder, you should copy the RouteAndMeasure folde
 
 For more resources on developing or modifying widgets please visit
 [Web AppBuilder for ArcGIS Documentation](http://doc.arcgis.com/en/web-appbuilder/)
+
+Add a linear referencing enabled service to the webmap to enable the widget.
 
 
 ### General Help
@@ -67,7 +70,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-A copy of the license is available in the repository's [LICENSE.txt](https://github.com/ArcGIS/lrs-webappbuilder-widgets/blob/master/RouteAndMeasure/LICENSE.txt?raw=true) file.
+A copy of the license is available in the repository's [LICENSE.txt](https://github.com/ArcGIS/lrs-webappbuilder-widgets/blob/master/LICENSE.txt?raw=true) file.
 
 [](Esri Tags: Roads Highways Pipeline Linear Referencing)
 [](Esri Language: JavaScript)

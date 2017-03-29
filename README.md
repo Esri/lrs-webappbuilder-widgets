@@ -13,7 +13,7 @@ Web AppBuilder widgets for linear referencing.
 ## Features
 The Widget Repository currently includes:
 
-* [Route and Measure](./RouteAndMeasure/README.md)
+* [Route and Measure](./RouteAndMeasure)
 
 ## Requirements
 Requires Web AppBuilder for ArcGIS version 2.3
