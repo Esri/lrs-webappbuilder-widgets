@@ -23,7 +23,7 @@ The Route and Measure widget allows you to easily search for routes in your netw
 
 ## Requirements
 
-* Web AppBuilder for ArcGIS version 2.3
+* Web AppBuilder for ArcGIS version 2.1
 
 ## Instructions
 Deploying Widgets
@@ -33,7 +33,9 @@ To use the widget with Web AppBuilder, you should copy the RouteAndMeasure folde
 For more resources on developing or modifying widgets please visit
 [Web AppBuilder for ArcGIS Documentation](http://doc.arcgis.com/en/web-appbuilder/)
 
-Add a linear referencing enabled service to the webmap to enable the widget.
+Add a linear referencing enabled map service to the webmap to enable the widget.
+
+When configuring the widget, leave 'Measure Precision' blank to use the measure precision configured for the network.
 
 
 ### General Help

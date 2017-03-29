@@ -1,0 +1,112 @@
+<div style="width:100%; padding: 10px;">
+    <table style="width: 100%;">
+        <tbody>
+            <tr>
+                <td>
+                    <label style="white-space: nowrap;">
+                        ${nls.measurePrecision}
+                        <div style="padding-bottom: 20px;">
+                            <input type="number" data-dojo-type="dijit/form/NumberSpinner" data-dojo-attach-point="_measurePrecisionInput" 
+                                data-dojo-props="smallDelta: 1, constraints: {min: 0, places: 0}" style="width: 100px;"/>
+                        </div>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label style="white-space: nowrap;">
+                        ${nls.pointZoomLevel}
+                        <div style="padding-bottom: 20px;">
+                            <input type="number" data-dojo-type="dijit/form/NumberSpinner" data-dojo-attach-point="_pointZoomInput" 
+                                value="16" data-dojo-props="smallDelta: 1, constraints: {min: 0, places: 0}" style="width: 100px;"/>
+                        </div>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label style="white-space: nowrap;">
+                        ${nls.fromMeasureSymbol}
+                        <div style="padding-bottom: 20px;">
+                            <div data-dojo-attach-point="_fromMeasureSymbolChooser" data-dojo-type="jimu/dijit/SymbolPicker"></div>
+                        </div>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label style="white-space: nowrap;">
+                        ${nls.toMeasureSymbol}
+                        <div style="padding-bottom: 20px;">
+                            <div data-dojo-attach-point="_toMeasureSymbolChooser" data-dojo-type="jimu/dijit/SymbolPicker"></div>
+                        </div>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label style="white-space: nowrap;">
+                        ${nls.lineSelectionSymbol}
+                        <div style="padding-bottom: 20px;">
+                            <div data-dojo-attach-point="_lineSelectionSymbolChooser" data-dojo-type="jimu/dijit/SymbolPicker"></div>
+                        </div>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label style="white-space: nowrap;">
+                        ${nls.lineFlashSymbol}
+                        <div style="padding-bottom: 20px;">
+                            <div data-dojo-attach-point="_lineFlashSymbolChooser" data-dojo-type="jimu/dijit/SymbolPicker"></div>
+                        </div>
+                    </label>
+                </td>
+            </tr>
+            <!-- <tr>
+                <td style="vertical-align: top; padding-right: 20px;">
+                    <label style="white-space: nowrap;">
+                        ${nls.fromMeasureSymbol}
+                        <div style="padding: 0px 5px;">
+                            <div data-dojo-attach-point="_fromMeasureSymbolChooser" data-dojo-type="jimu/dijit/SymbolPicker"></div>
+                        </div>
+                    </label>
+                </td>
+                <td style="text-align: center; border-left: 1px solid #C0C0C0;">
+                    <div style="width: 21px;"></div>
+                </td>
+                <td style="width: 100%; vertical-align: top;">
+                    <label style="white-space: nowrap;">
+                        ${nls.toMeasureSymbol}
+                        <div style="padding: 0px 5px;">
+                            <div data-dojo-attach-point="_toMeasureSymbolChooser" data-dojo-type="jimu/dijit/SymbolChooser"></div>
+                        </div>
+                    </label>
+                </td>
+            </tr>
+            <tr height="30">
+            </tr>
+            <tr>
+                <td style="vertical-align: top; padding-right: 20px;">
+                    <label style="white-space: nowrap">
+                        ${nls.lineSelectionSymbol}
+                        <div style="padding: 0px 5px;">
+                            <div data-dojo-attach-point="_lineSelectionSymbolChooser" data-dojo-type="jimu/dijit/SymbolChooser"></div>
+                        </div>
+                    </label>
+                </td>
+                <td style="text-align: center; border-left: 1px solid #C0C0C0;">
+                    <div style="width: 21px;"></div>
+                </td>
+                <td style="width: 100%; vertical-align: top;">
+                    <label style="white-space: nowrap;">
+                        ${nls.lineFlashSymbol}
+                        <div style="padding: 0px 5px;">
+                            <div data-dojo-attach-point="_lineFlashSymbolChooser" data-dojo-type="jimu/dijit/SymbolChooser"></div>
+                        </div>
+                    </label>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+</div>

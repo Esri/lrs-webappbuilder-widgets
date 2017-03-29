@@ -1,0 +1,55 @@
+<div style="width: 100%; height: 100%;">
+    <div data-dojo-attach-point="_contentPanel">  
+        <table style="border-collapse: separate; border-spacing: 5px 8px; width: 100%">
+            <tr>
+                <td>                    
+                    <label>
+                        <span class="noWrap">${nls.network}</span>
+                        <select data-dojo-type="dijit/form/Select" data-dojo-attach-point="_networkSelect" data-dojo-attach-event="onChange:_onNetworkSelectChange" style="width: 100%; margin: 2px 0px;"></select>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>                    
+                    <label>
+                        <span class="noWrap" data-dojo-attach-point="_fromRouteLabel">${nls.fromRouteName}</span>
+                        <div data-dojo-type="widgets/RouteAndMeasure/lrscommon/js/form/RoutePicker" data-dojo-attach-point="_fromRouteInput" style="width: 100%;" required></div>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>                    
+                    <label>
+                        <span class="noWrap" data-dojo-attach-point="_fromMeasureLabel">${nls.fromMeasure}</span>
+                        <div data-dojo-type="widgets/RouteAndMeasure/lrscommon/js/form/MeasurePicker" data-dojo-attach-point="_fromMeasureInput" style="width: 100%;"></select>
+                    </label>
+                </td>
+            </tr>
+            <tr data-dojo-attach-point="_toRouteDiv">
+                <td>                    
+                    <label>
+                        <span class="noWrap" data-dojo-attach-point="_toRouteLabel">${nls.toRouteName}</span>
+                        <div data-dojo-type="widgets/RouteAndMeasure/lrscommon/js/form/RoutePicker" data-dojo-attach-point="_toRouteInput" style="width: 100%;"></div>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>                    
+                    <label>
+                        <span class="noWrap" data-dojo-attach-point="_toMeasureLabel">${nls.toMeasure}</span>
+                        <div data-dojo-type="widgets/RouteAndMeasure/lrscommon/js/form/MeasurePicker" data-dojo-attach-point="_toMeasureInput" style="width: 100%;"></select>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td class="alignTdRight">
+                    <div class="jimu-btn" data-dojo-attach-event="onClick:_pan" title="${nls.pan}">${nls.pan}</div>
+                    <div class="jimu-btn" data-dojo-attach-event="onClick:_zoom" title="${nls.zoom}">${nls.zoom}</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div data-dojo-attach-point="_errorPanel" class="errorPanel" >${nls.error}</div>
+    <div data-dojo-attach-point="_busyPanel" class="busyPanel"><div data-dojo-type="jimu/dijit/LoadingIndicator"></div></div>
+    <div data-dojo-attach-point="_loadingPanel" class="loadingPanel"><div data-dojo-type="jimu/dijit/LoadingIndicator"></div></div>
+</div>

@@ -1,0 +1,45 @@
+{
+    "fromMeasureSymbol": {
+        "color": [0, 192, 0, 255],
+        "size": 13.5,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "type": "esriSMS",
+        "style": "esriSMSCross",
+        "outline": {
+            "color": [0, 192, 0, 255],
+            "width": 3,
+            "type": "esriSLS",
+            "style": "esriSLSSolid"
+        }
+    },
+    "toMeasureSymbol": {
+        "color": [255, 0, 0, 255],
+        "size": 12,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "type": "esriSMS",
+        "style": "esriSMSX",
+        "outline": {
+            "color": [255, 0, 0, 255],
+            "width": 3,
+            "type": "esriSLS",
+            "style": "esriSLSSolid"
+        }
+    },
+    "lineSelectionSymbol": {
+        "color": [0, 255, 255, 255],
+        "width": 3,
+        "type": "esriSLS",
+        "style": "esriSLSSolid"
+    },
+    "lineFlashSymbol": {
+        "color": [0, 100, 0, 255],
+        "width": 3,
+        "type": "esriSLS",
+        "style": "esriSLSSolid"
+    },
+    "pointZoomLevel": 16
+}
