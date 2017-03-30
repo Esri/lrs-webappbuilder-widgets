@@ -1,5 +1,6 @@
 # lrs-webappbuilder-widgets
 Web AppBuilder widgets for linear referencing.
+These widgets are developer samples.
 ## Sections
 
 * [Features](#features)

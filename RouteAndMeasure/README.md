@@ -1,6 +1,8 @@
 # Route and Measure widget
 The Route and Measure widget for Web AppBuilder works with the Esri Roads and Highways and ArcGIS Pipeline Referencing extensions for ArcGIS Enterprise.
 
+This is a developer sample.
+
 The Route and Measure widget allows you to easily search for routes in your network and identify measures on routes. Users can pan or zoom the map to the whole route or to just a section of a route when measures are provided. Users can type in route and measure values or use the map to select a route and measures.
 
 ![Image of Route and Measure widget](./screenshots/widgetScreenshot.png)
