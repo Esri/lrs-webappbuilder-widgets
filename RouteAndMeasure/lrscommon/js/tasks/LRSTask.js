@@ -33,8 +33,19 @@ return declare(null, {
     gdbVersion: null,
     disableClientCaching: true,
     
+    _isLRServer: false,
+    _isLRSServer: false,
+    
     constructor: function(url, options) {
         this.url = url;
+        
+        var urlObj = urlUtils.urlToObject(this.url);
+        if(urlObj.path.indexOf("/exts/LRServer") > -1) {
+            this._isLRServer = true;
+        } else {
+            this._isLRSServer = true;
+        }
+        
         if (options) {
             if (options.disableClientCaching !== undefined) {
                 this.disableClientCaching = !!options.disableClientCaching;
@@ -114,7 +125,13 @@ return declare(null, {
      * Retrieves information on the LRS route locking scheme for all LRS workspaces in the map service.
      */    
     getLocks: function(callback, errback) {
-        return this._request("/locks", null, null, callback, errback);
+        if (this._isLRServer) {
+            var defd = new Deferred();
+            defd.resolve(null);
+            return defd;
+        } else {
+            return this._request("/locks", null, null, callback, errback);
+        }
     },
     
     /// REST Operations ///

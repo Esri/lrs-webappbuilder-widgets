@@ -3,6 +3,7 @@ define({
         error: "Error",
         errorChoosingMeasureOnMap: "An error occurred while querying for the measure.",
         errorChoosingRouteOnMap: "An error occurred while querying for the route.",
+        errorDetails: "Details: ${0}",
         errorGettingLrsLayers: "An error occurred while trying to get the LRS information.",
         errorValidatingRoute: "An error occurred while trying to validate the route.",
         fromMeasure: "From Measure",

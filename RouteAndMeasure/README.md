@@ -25,7 +25,7 @@ The Route and Measure widget allows you to easily search for routes in your netw
 
 ## Requirements
 
-* Web AppBuilder for ArcGIS version 2.1
+* Web AppBuilder for ArcGIS version 2.6
 
 ## Instructions
 Deploying Widgets

@@ -20,6 +20,7 @@ define([
     "dojo/_base/lang",
     "dojo/DeferredList",
     "dojo/on",
+    "esri/graphic",
     "esri/toolbars/draw",
     "jimu/SelectionManager",
     "./_FormWidgetBase",
@@ -33,7 +34,7 @@ define([
     "../util/utils",
     "dojo/text!./templates/RoutePicker.html"
 ], function(
-    array, declare, lang, DeferredList, on, Draw, SelectionManager, _FormWidgetBase, RouteComboBox, ToggleButton,
+    array, declare, lang, DeferredList, on, Graphic, Draw, SelectionManager, _FormWidgetBase, RouteComboBox, ToggleButton,
     SelectFeaturePopup, RouteComboBox, RouteTask, serviceInfoCache, routeNameUtils, utils, template
 ) {
     
@@ -50,7 +51,9 @@ return declare([_FormWidgetBase], {
     _routeTask: null,
     _drawToolbar: null,
     _eventHandlers: null,
+    _graphics: null,
     makeRouteSelections: true, // if true, will select the route in the feature layer on the map
+    selectOnGraphicsLayer: false, // if false makes selections on the network feature layer, if true makes selections on the map graphics layer
     networkLayer: null,
     selectionFeatures: null,
     
@@ -87,11 +90,13 @@ return declare([_FormWidgetBase], {
     },
     
     destroy: function() {
-        this._deactivateDraw();
-        this._mapManager.toggleButtonManager.unregisterButton(this._chooseRouteButton);
-        array.forEach(this._eventHandlers, function(eventHandle) {
-            eventHandle.remove();
-        }, this);
+        if (this._mapManager) {            
+            this._deactivateDraw();
+            this._mapManager.toggleButtonManager.unregisterButton(this._chooseRouteButton);
+            array.forEach(this._eventHandlers, function(eventHandle) {
+                eventHandle.remove();
+            }, this);
+        }
         this.inherited(arguments);
     },
     
@@ -112,7 +117,7 @@ return declare([_FormWidgetBase], {
      * routeValues: {
      *     routeId: <string>
      *     routeName: <string>
-     *     routeFeature: feature <esri/Graphic>
+     *     routeFeature: feature <esri/graphic>
      */
     setRouteValues: function(routeValues, validate) {
         this._routeInput.setRouteValues(routeValues, validate);    
@@ -231,37 +236,66 @@ return declare([_FormWidgetBase], {
     },
     
     _setLayerSelection: function(features) {
-        var url = utils.appendUrlPath(this._mapManager.lrsMapLayerConfig.url, "/" + this.networkLayer.id);
-        var lrsMapId = this._mapManager.lrsMapLayerConfig.id;
         this._setSelectionFeatures(features);
-        serviceInfoCache.getAppBuilderLayerObject(url, lrsMapId).then(lang.hitch(this, function(layerObject) {
-            var selectionManager = SelectionManager.getInstance();
-            layerObject.setSelectionSymbol(this._mapManager.getLineSelectionSymbol());
-            selectionManager.clearSelection(layerObject);
-            selectionManager.setSelection(layerObject, features);
-        }), lang.hitch(this, function(err) {
-            console.log("Could not select the route/line on the map.");
-            console.log(err);
-        }));
+        var symbol = this._mapManager.getLineSelectionSymbol();
+        
+        if (this.selectOnGraphicsLayer) {
+            this._clearGraphics();            
+            this._graphics = array.map(features, function(feature) {
+                var graphic = new Graphic(feature.geometry, symbol);
+                this._mapManager.map.graphics.add(graphic);
+                return graphic;
+            }, this);
+        } else {
+            var url = utils.appendUrlPath(this._mapManager.lrsMapLayerConfig.url, "/" + this.networkLayer.id);
+            var lrsMapId = this._mapManager.lrsMapLayerConfig.id;
+            serviceInfoCache.getAppBuilderLayerObject(url, lrsMapId).then(lang.hitch(this, function(layerObject) {
+                var selectionManager = SelectionManager.getInstance();
+                layerObject.setSelectionSymbol(symbol);
+                selectionManager.clearSelection(layerObject);
+                selectionManager.setSelection(layerObject, features);
+            }), lang.hitch(this, function(err) {
+                console.log("Could not select the route/line on the map.");
+                console.log(err);
+            }));
+            
+        }
     },
     
     /*
      * Clear the routes selected in a specific network
      */
     clearSelection: function(networkLayer) {
-        networkLayer = networkLayer || this.networkLayer;
         this._setSelectionFeatures(null);
-        if (this.makeRouteSelections && networkLayer && this._mapManager) {
-            var url = utils.appendUrlPath(this._mapManager.lrsMapLayerConfig.url, "/" + networkLayer.id);
-            var lrsMapId = this._mapManager.lrsMapLayerConfig.id;
-            serviceInfoCache.getAppBuilderLayerObject(url, lrsMapId).then(lang.hitch(this, function(layerObject) {
-                var selectionManager = SelectionManager.getInstance();
-                selectionManager.clearSelection(layerObject);
-            }), lang.hitch(this, function(err) {
-                console.log("Could not clear the route selection from the map.");
-                console.log(err);
-            }));
-        }    
+        
+        if (this.selectOnGraphicsLayer) {
+            this._clearGraphics();
+        } else {
+            networkLayer = networkLayer || this.networkLayer;
+            if (this.makeRouteSelections && networkLayer && this._mapManager) {
+                var url = utils.appendUrlPath(this._mapManager.lrsMapLayerConfig.url, "/" + networkLayer.id);
+                var lrsMapId = this._mapManager.lrsMapLayerConfig.id;
+                serviceInfoCache.getAppBuilderLayerObject(url, lrsMapId).then(lang.hitch(this, function(layerObject) {
+                    var selectionManager = SelectionManager.getInstance();
+                    selectionManager.clearSelection(layerObject);
+                }), lang.hitch(this, function(err) {
+                    console.log("Could not clear the route selection from the map.");
+                    console.log(err);
+                }));
+            }    
+        }
+    },
+    
+    /*
+     * Clears the graphics on the map's graphics layer that this route picker has added
+     */
+    _clearGraphics: function() {
+        if (this._graphics && this._mapManager && this._mapManager.map) {
+            array.forEach(this._graphics, function(graphic) {
+                this._mapManager.map.graphics.remove(graphic);
+            }, this);
+            this._graphics = null;
+        }
     },
     
     /*

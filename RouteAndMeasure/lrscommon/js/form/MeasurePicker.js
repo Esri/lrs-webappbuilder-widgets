@@ -82,11 +82,13 @@ return declare([_FormWidgetBase], {
     },
     
     destroy: function() {
-        this._deactivateDraw();
-        this._mapManager.toggleButtonManager.unregisterButton(this._chooseMeasureButton);
-        array.forEach(this._eventHandlers, function(eventHandle) {
-            eventHandle.remove();
-        }, this);
+        if (this._mapManager) {
+            this._deactivateDraw();
+            this._mapManager.toggleButtonManager.unregisterButton(this._chooseMeasureButton);
+            array.forEach(this._eventHandlers, function(eventHandle) {
+                eventHandle.remove();
+            }, this);
+        }
         this.inherited(arguments);
     },
     
@@ -100,8 +102,8 @@ return declare([_FormWidgetBase], {
     /*
      * Sets the measure programmatically. If validate is false, it will not validate the provided measure.
      */
-    setMeasure: function(measure, validate) {
-        this._measureInput.setMeasure(measure, validate);    
+    setMeasure: function(measure, geometry, validate) {
+        this._measureInput.setMeasure(measure, geometry, validate);    
     },
     
     /*
@@ -129,9 +131,11 @@ return declare([_FormWidgetBase], {
             this._measureInput.getMeasure().then(lang.hitch(this, function(measureObj) {
                 if (measureObj && measureObj.valid) {
                     this.clearSelection();
-                    var symbol = this.selectionSymbol || this._mapManager.getPointSymbol();
-                    this._graphic = new Graphic(measureObj.geometry, symbol);
-                    this._mapManager.map.graphics.add(this._graphic);
+                    if (measureObj.geometry) {
+                        var symbol = this.selectionSymbol || this._mapManager.getPointSymbol();
+                        this._graphic = new Graphic(measureObj.geometry, symbol);
+                        this._mapManager.map.graphics.add(this._graphic);
+                    }
                 }
             }));
         }    

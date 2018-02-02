@@ -17,7 +17,7 @@ The Widget Repository currently includes:
 * [Route and Measure](./RouteAndMeasure)
 
 ## Requirements
-Requires Web AppBuilder for ArcGIS version 2.1
+Requires Web AppBuilder for ArcGIS version 2.6
 
 ## Instructions
 Deploying Widgets.

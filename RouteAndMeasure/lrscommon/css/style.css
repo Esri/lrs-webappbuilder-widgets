@@ -1,6 +1,9 @@
 .jimu-widget-lrswidget {
     font-size: 14px;
 }
+.jimu-widget-lrswidget .noWrap {
+    white-space: nowrap;
+}
 .jimu-widget-lrswidget .subTitle {
     font-family: 'Avenir Medium', Verdana, Geneva, sans-serif;
 }

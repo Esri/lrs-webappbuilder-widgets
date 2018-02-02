@@ -1,9 +1,9 @@
 {
   "name": "RouteAndMeasure",
   "platform": "HTML",
-  "version": "2.1.0",
-  "wabVersion": "2.1.0",
-  "author": "Esri",
+  "version": "2.6.0",
+  "wabVersion": "2.6.0",
+  "author": "Location Referencing Team",
   "description": "",
   "copyright": "",
   "license": "http://www.apache.org/licenses/LICENSE-2.0",

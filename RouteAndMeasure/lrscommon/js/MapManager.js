@@ -243,6 +243,31 @@ define([
             return this._getLayerUnits(this.getBaseLayer());
         },
         
+        /*
+         * Makes a layer in the lrs map service visible on the map if it isn't already
+         */
+        makeLrsLayerVisible: function(layerId) {
+            var lrsMapLayer = this.lrsMapLayerConfig ? this.lrsMapLayerConfig.layerObject : null;
+            if (lrsMapLayer && layerId != null) {
+                var visibleLayers = lrsMapLayer.visibleLayers ? lrsMapLayer.visibleLayers.slice() : [];
+                var layerVisible = array.some(visibleLayers, function(layer) {
+                    return layer == layerId;
+                }, this);
+                if (!layerVisible) {
+                    visibleLayers.push(layerId);
+                    lrsMapLayer.setVisibleLayers(visibleLayers);
+                }
+            } else {
+                var message = "Could not set the visiblity of the lrs layer.";
+                if (!lrsMapLayer) {
+                    message += " No LRS map layer.";
+                } else if (layerId == null){
+                    message += " No layer ID.";
+                }
+                console.log(message);
+            }
+        },
+        
         _getLayerUnits: function(layer) {
             if (layer) {
                 // Layer types: OpenStreetMapLayer, VETiledLayer
@@ -294,9 +319,18 @@ define([
                             url: layer.url, content: params, callbackParamName: "callback"
                         }).then(lang.hitch(this, function(json) {
                             if (json && json.supportedExtensions) {
-                                if (array.indexOf(json.supportedExtensions.split(", "), "LRSServer") > -1) {
+                                var supportedExtensions = json.supportedExtensions.split(", ");
+                                var lrsUrl = null;
+                                if (array.indexOf(supportedExtensions, "LRSServer") > -1) {
+                                    // This is a valid LRS map service from ArcMap
+                                    lrsUrl = layer.url + "/exts/LRSServer";
+                                } else if (array.indexOf(supportedExtensions, "LRServer") > -1) {
+                                    // This is a valid LRS map service from ArcGIS Pro
+                                    lrsUrl = layer.url + "/exts/LRServer";
+                                }
+                                if (lrsUrl) {
                                     // This is a valid LRS map service
-                                    candidates.push({ layer: layer, layerIndex: layerIndex, lrsConfig: json, lrsUrl: layer.url + "/exts/LRSServer"});
+                                    candidates.push({ layer: layer, layerIndex: layerIndex, lrsConfig: json, lrsUrl: lrsUrl});
                                 }
                             }
                             defdLayer.resolve();

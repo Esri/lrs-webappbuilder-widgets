@@ -97,6 +97,10 @@ define([
             utils.showMessage(message);
         },
         
+        showErrorMessage: function(message, details) {
+            utils.showErrorMessage(message, details);
+        },
+        
         /*
          * Shows the busy wheel on the widget. 
          * The content will still be displayed behind the wheel but will be unclickable.

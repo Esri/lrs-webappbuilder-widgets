@@ -410,7 +410,8 @@ return declare([ComboBox], {
     },
     
     _setRouteIsValidated: function(routeValue, feature) {
-        if (this.get("value") == routeValue) {
+        var currentValue = this.get("value");
+        if (currentValue == routeValue || (utils.isEmptyString(currentValue) && utils.isEmptyString(routeValue))) {
             this.routeIsValidated = true;
             this.onRouteValidated(this.isValidRoute, feature);
         }    

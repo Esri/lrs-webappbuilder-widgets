@@ -19,11 +19,12 @@ define([
     "dojo/_base/lang",
     "dojo/dom-style",
     "dojo/query", 
+    "dojo/string",
     "esri/urlUtils",
     "jimu/dijit/Message",
     "dojo/i18n!../nls/strings"
 ], function(
-    array, lang, domStyle, domQuery, urlUtils, Message, nls
+    array, lang, domStyle, domQuery, string, urlUtils, Message, nls
 ) {
     function deepMixin(dest, /*any number of objects*/ sources) {
         dest = dest || {};
@@ -83,11 +84,23 @@ define([
         /*
          * Shows a popup message to the user
          */
-        showMessage: function(message) {
+        showMessage: function(message, title) {
             var popup = new Message({
                 message: message,
-                autoHeight: true
+                autoHeight: true,
+                titleLabel: title
             });
+        },
+        
+        /*
+         * Shows a popup error message to the user
+         */
+        showErrorMessage: function(message, details) {
+            message = message || "";
+            if (details && details != "") {
+                message += "\n\n" + string.substitute(nls.errorDetails, [details]);
+            }
+            utils.showMessage(message, nls.error);
         },
         
         /*
@@ -377,6 +390,91 @@ define([
          */
         isValidNumber: function(value) {
             return (value != null && value !== "" && !isNaN(value));
+        },
+        
+        /*
+         * Returns true if the string is "", null, or undefined
+         */
+        isEmptyString: function(value) {
+            return (value == undefined || value == null || value == "");
+        },
+        
+        /*
+         * Returns the object ID field
+         */
+        getObjectIdField: function(fields) {
+            var fieldInfo = utils.first(fields, function(candField) {
+                return candField.type === "esriFieldTypeOID";
+            }, this);
+            return fieldInfo;
+        },
+        
+        /*
+         * Returns the lrs specific fields in an event layer
+         */
+        getLrsFields: function(layer) {
+            function addField(field, arr) {
+                if (field) {
+                    arr.push(field.toLowerCase());
+                }
+            };
+            
+            var fields = [];
+            addField(layer.eventIdFieldName, fields);
+            addField(layer.routeIdFieldName, fields);
+            addField(layer.toRouteIdFieldName, fields);
+            addField(layer.routeNameFieldName, fields);
+            addField(layer.toRouteNameFieldName, fields);
+            addField(layer.fromMeasureFieldName, fields);
+            addField(layer.toMeasureFieldName, fields);
+            addField(layer.measureFieldName, fields);
+            addField(layer.fromDateFieldName, fields);
+            addField(layer.toDateFieldName, fields);
+            addField(layer.locErrorFieldName, fields);
+            addField(layer.stationFieldName, fields);
+            addField(layer.backStationFieldName, fields);
+            addField(layer.stationMeasureDirectionFieldName, fields);
+            addField(layer.fromReferentMethodFieldName, fields);
+            addField(layer.fromReferentLocationFieldName, fields);
+            addField(layer.fromReferentOffsetFieldName, fields);
+            addField(layer.toReferentMethodFieldName, fields);
+            addField(layer.toReferentLocationFieldName, fields);
+            addField(layer.toReferentOffsetFieldName, fields);
+            return fields;
+        },
+        
+        /*
+         * Returns a new field name that is unique.
+         * startName is the desired name. If this name is already taken, numbers will be appended until it is unique
+         * fieldNames is an array of current field names (not needed if fields is passed)
+         * fields is an array of current fields (not needed if fieldNames is passed)
+         */
+        getUniqueFieldName: function(startName, fieldNames, fields) {
+            if (fields) {
+                fieldNames = array.map(fields, function(field) {
+                    if (field && field.name) {
+                        return field.name.toLowerCase();
+                    } else {
+                        return "";
+                    }
+                }, this);
+            } else {
+                fieldNames = array.map(fieldNames, function(fieldName) {
+                    if (fieldName) {
+                        return fieldName.toLowerCase();
+                    } else {
+                        return "";
+                    }
+                }, this);
+            }
+            
+            var fieldName = startName;
+            var count = 1;
+            while (array.indexOf(fieldNames, fieldName.toLowerCase()) > -1) {
+                fieldName = startName + count;
+                count++;
+            }
+            return fieldName;   
         }
     };
     

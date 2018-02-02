@@ -130,26 +130,8 @@ define([
          * Makes the selected network layer visible on the map if it isn't already
          */
         _makeNetworkLayerVisible: function() {
-            var lrsMapLayer = this._mapManager.lrsMapLayerConfig ? this._mapManager.lrsMapLayerConfig.layerObject : null;
-            var networkLayer = this._networkLayer;
-            if (lrsMapLayer && networkLayer) {
-                var visibleLayers = lrsMapLayer.visibleLayers ? lrsMapLayer.visibleLayers.slice() : [];
-                var networkLayerVisible = array.some(visibleLayers, function(layer) {
-                    return layer == networkLayer.id;
-                }, this);
-                if (!networkLayerVisible) {
-                    visibleLayers.push(networkLayer.id);
-                    lrsMapLayer.setVisibleLayers(visibleLayers);
-                }
-            } else {
-                var message = "Could not set the visiblity of the choosen network layer.";
-                if (!lrsMapLayer) {
-                    message += " No LRS map layer.";
-                } else if (!networkLayer){
-                    message += " No network layer.";
-                }
-                console.log(message);
-            }
+            var layerId = this._networkLayer ? this._networkLayer.id : null;
+            this._mapManager.makeLrsLayerVisible(layerId);
         },
         
         _pan: function() {
@@ -326,6 +308,10 @@ define([
             this._toMeasureInput.setMeasure(null, null, false);
             this._toRouteInput.setRouteValues({}, false);
             this._fromRouteInput.setRouteValues({}, false);
+            this._fromMeasureInput.deactivate();
+            this._toMeasureInput.deactivate();
+            this._toRouteInput.deactivate();
+            this._fromRouteInput.deactivate();
         }
         
     });
