@@ -18,7 +18,9 @@ The Widget Repository currently includes:
 * [Overlay Events](./OverlayEvents)
 
 ## Requirements
-Requires Web AppBuilder for ArcGIS version 2.6
+
+* Web AppBuilder for ArcGIS version 2.6
+* An LRS enabled map service published with a definition query for time
 
 ## Instructions
 Deploying Widgets.
