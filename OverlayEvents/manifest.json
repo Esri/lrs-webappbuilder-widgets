@@ -1,0 +1,22 @@
+{
+  "name": "OverlayEvents",
+  "platform": "HTML",
+  "version": "2.6.0",
+  "wabVersion": "2.6.0",
+  "author": "Location Referencing Team",
+  "description": "",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {
+        "inPanel": true,
+        "hasLocale": true,
+        "hasStyle": true,
+        "hasConfig": true,
+        "hasUIFile": true,
+        "hasSettingPage": true,
+        "hasSettingUIFile": true,
+        "hasSettingLocale": true,
+        "hasSettingStyle": true,
+        "IsController": false
+  }
+}

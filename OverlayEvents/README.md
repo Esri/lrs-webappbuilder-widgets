@@ -1,6 +1,12 @@
-# lrs-webappbuilder-widgets
-Web AppBuilder widgets for linear referencing.
-These widgets are developer samples.
+# Overlay Events widget
+The Overlay Events widget for Web AppBuilder works with the Esri Roads and Highways and ArcGIS Pipeline Referencing extensions for ArcGIS Enterprise.
+
+This is a developer sample.
+
+The Overlay Events widget allows you to dynamically segment events together into one feature layer. Users can dynamically segment a whole route or just a section of a route when measures are provided. Users can type in route and measure values or use the map to select a route and measures.
+
+![Image of Overlay Events widget](./screenshots/widgetScreenshot.png)
+
 ## Sections
 
 * [Features](#features)
@@ -12,28 +18,34 @@ These widgets are developer samples.
 * [Licensing](#licensing)
 
 ## Features
-The Widget Repository currently includes:
 
-* [Route and Measure](./RouteAndMeasure)
-* [Overlay Events](./OverlayEvents)
+* Automatically detect a linear referencing enabled map service in the webmap
+* Dynamically segment events on a route
 
 ## Requirements
-Requires Web AppBuilder for ArcGIS version 2.6
+
+* Web AppBuilder for ArcGIS version 2.6
 
 ## Instructions
-Deploying Widgets.
+Deploying Widgets
 
-To use the widgets with Web AppBuilder, you should copy any of the widgets to the stemapp/widgets directory. This is located in %webappbuilder_install%/client directory.
+To use the widget with Web AppBuilder, you should copy the OverlayEvents folder to the stemapp/widgets directory. This is located in %webappbuilder_install%/client directory.
 
 For more resources on developing or modifying widgets please visit
 [Web AppBuilder for ArcGIS Documentation](http://doc.arcgis.com/en/web-appbuilder/)
 
+Add a linear referencing enabled map service to the webmap to enable the widget.
+
+When configuring the widget, leave 'Measure Precision' blank to use the measure precision configured for the network.
+
+
 ### General Help
 [New to Github? Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
 
-
 ## Resources
 
+* [Web AppBuilder API](https://developers.arcgis.com/web-appbuilder/api-reference/css-framework.htm)
+* [ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/)
 * Learn more about [Esri Roads and Highways for Server](https://server.arcgis.com/en/roads-highways/)
 * Learn more about [ArcGIS Pipeline Referencing for Server](https://server.arcgis.com/en/pipeline-referencing/)
 

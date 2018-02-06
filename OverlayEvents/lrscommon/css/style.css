@@ -1,0 +1,130 @@
+.jimu-widget-lrswidget {
+    font-size: 14px;
+}
+.jimu-widget-lrswidget .noWrap {
+    white-space: nowrap;
+}
+.jimu-widget-lrswidget .subTitle {
+    font-family: 'Avenir Medium', Verdana, Geneva, sans-serif;
+}
+.jimu-widget-lrswidget .errorPanel {
+    color: #D46464;
+    font-family: 'Avenir Medium', Verdana, Geneva, sans-serif;
+}
+.jimu-widget-lrswidget .loadingPanel {
+    width: 100%;
+    height: 100%;
+}
+.jimu-widget-lrswidget .busyPanel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(119, 119, 119, 0.5);
+    display: none;
+}
+.jimu-widget-lrswidget td.alignTdRight {
+    text-align: right;    
+}
+.jimu-rtl .jimu-widget-lrswidget td.alignTdRight {
+    text-align: left;    
+}
+
+
+/* toggle button */
+.lrsToggleBtn {
+    display: inline-block;
+    min-width: 10px;
+    padding: 0px;
+}
+.lrsToggleBtnActive {
+    color: #FFFFFF;
+}
+.lrsToggleBtnUnactive {
+    background-color: #FFFFFF;
+    color: #777777;
+}
+.lrsToggleBtnIcon {
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 28px;
+    height: 28px;
+    float: left;
+}
+.lrsToggleBtnLabel {
+    padding: 0px 10px 0px 0px;
+    font-weight: normal;
+    float: right;
+    line-height: 28px;
+}
+
+/* Text field content menu */
+.jimu-widget-lrswidget .textFieldContextMenu {
+    position: absolute;
+    overflow: hidden;
+    width: 17px;
+    height: 100%;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+}
+.jimu-widget-lrswidget .textFieldContextMenu.disabledTextFieldContextMenu {
+    cursor: inherit;
+}
+.jimu-rtl .jimu-widget-lrswidget .textFieldContextMenu {
+    right: auto;
+    left: 0px;
+}
+.jimu-widget-lrswidget .textFieldContextMenuButton {
+    width: 15px;
+    height: 100%;
+    margin-top: 0px;
+    margin-left: 0px;
+    background-image: url('../images/blackDownArrow.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+.jimu-widget-lrswidget .textFieldContextMenuButton.disabledTextFieldContextMenuButton{
+    background-image: url('../img/greyDownArrow.png');
+    cursor: inherit;
+}
+.jimu-rtl .jimu-widget-lrswidget .textFieldContextMenuButton {
+    margin-left: 0;
+    margin-right: 3px;
+}
+.jimu-widget-lrswidget .dijitTextBox .textFieldContextMenuInput {
+    padding-right: 7px !important;
+}
+.jimu-rtl .jimu-widget-lrswidget .dijitTextBox .textFieldContextMenuInput {
+    padding-left: 7px !important;
+}
+
+
+/* button icons */
+/* Arrow Picker */
+.lrsToggleBtnActive .selectFromMapIcon,
+.lrsToggleBtn:hover .selectFromMapIcon {
+    background-image: url("../images/arrowPickerWhite.png");
+}
+.selectFromMapIcon {
+    background-image: url("../images/arrowPickerGray.png");
+}
+/* Select Route */
+.lrsToggleBtnActive .selectRouteIcon,
+.lrsToggleBtn:hover .selectRouteIcon {
+    background-image: url("../images/selectRouteWhite.png");
+}
+.selectRouteIcon {
+    background-image: url("../images/selectRouteGray.png");
+}
+/* Select Measure */
+.lrsToggleBtnActive .selectMeasureIcon,
+.lrsToggleBtn:hover .selectMeasureIcon {
+    background-image: url("../images/selectMeasureWhite.png");
+}
+.selectMeasureIcon {
+    background-image: url("../images/selectMeasureGray.png");
+}
