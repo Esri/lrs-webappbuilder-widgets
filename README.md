@@ -28,7 +28,7 @@ Deploying Widgets.
 To use the widgets with Web AppBuilder, you should copy any of the widgets to the stemapp/widgets directory. This is located in %webappbuilder_install%/client directory.
 
 For more resources on developing or modifying widgets please visit
-[Web AppBuilder for ArcGIS Documentation](http://doc.arcgis.com/en/web-appbuilder/)
+[Web AppBuilder for ArcGIS Documentation](https://developers.arcgis.com/web-appbuilder/)
 
 ### General Help
 [New to Github? Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)

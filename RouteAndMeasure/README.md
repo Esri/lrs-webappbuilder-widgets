@@ -34,7 +34,7 @@ Deploying Widgets
 To use the widget with Web AppBuilder, you should copy the RouteAndMeasure folder to the stemapp/widgets directory. This is located in %webappbuilder_install%/client directory.
 
 For more resources on developing or modifying widgets please visit
-[Web AppBuilder for ArcGIS Documentation](http://doc.arcgis.com/en/web-appbuilder/)
+[Web AppBuilder for ArcGIS Documentation](https://developers.arcgis.com/web-appbuilder/)
 
 Add a linear referencing enabled map service to the webmap to enable the widget. The LRS map service should be published with a definition query for time.
 
